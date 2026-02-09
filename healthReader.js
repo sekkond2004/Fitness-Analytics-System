@@ -10,9 +10,12 @@ async function readHealth() {
     console.log("Success! Found your health data!");
     console.log("Total health entries:", totalEntries);
 
+    return totalEntries; // ✅ return value
+
   } catch (error) {
     console.log("Something went wrong:", error.message);
+    throw error; // ✅ REQUIRED for Jest
   }
 }
 
-readHealth();
+module.exports = { readHealth };
